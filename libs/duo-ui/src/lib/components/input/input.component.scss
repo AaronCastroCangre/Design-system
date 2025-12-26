@@ -150,25 +150,29 @@
     // ---------------------------------------------------------------------------
 
     &--sm {
-      padding: 8px 12px;
+      padding: 6px 12px;
       font-size: $font-size-sm;
-      min-height: 40px;
+      height: $button-height-sm + $button-shadow-depth-sm; // 36px + 3px = 39px total
       border-radius: $border-radius-sm;
-      border-bottom-width: 3px;
+      border-bottom-width: $button-shadow-depth-sm;
+      box-sizing: border-box;
     }
 
     &--md {
-      padding: 12px 16px;
+      padding: 8px 16px;
       font-size: $font-size-md;
-      min-height: 48px;
+      height: $button-height-md + $button-shadow-depth; // 44px + 4px = 48px total
+      border-bottom-width: $button-shadow-depth;
+      box-sizing: border-box;
     }
 
     &--lg {
-      padding: 16px 20px;
+      padding: 10px 20px;
       font-size: $font-size-lg;
-      min-height: 56px;
+      height: $button-height-lg + $button-shadow-depth-lg; // 52px + 5px = 57px total
       border-radius: $border-radius-lg;
-      border-bottom-width: 5px;
+      border-bottom-width: $button-shadow-depth-lg;
+      box-sizing: border-box;
     }
 
     // ---------------------------------------------------------------------------
