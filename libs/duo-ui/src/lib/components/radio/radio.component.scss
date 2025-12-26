@@ -1,0 +1,178 @@
+@use '../../styles/tokens' as *;
+
+// =============================================================================
+// DUOLINGO RADIO COMPONENT
+// =============================================================================
+
+.duo-radio-group {
+  display: flex;
+  gap: 12px;
+
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.duo-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-family: $font-family;
+  user-select: none;
+  transition: all $transition-fast;
+
+  &:hover:not(.duo-radio--disabled) {
+    .duo-radio__control {
+      border-color: $color-primary;
+      background-color: rgba($color-primary, 0.05);
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // HIDDEN INPUT
+  // ---------------------------------------------------------------------------
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  // ---------------------------------------------------------------------------
+  // CONTROL (CIRCLE)
+  // ---------------------------------------------------------------------------
+
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid $color-gray-300;
+    border-radius: 50%;
+    background-color: $color-white;
+    transition: all $transition-fast;
+    flex-shrink: 0;
+    border-bottom-width: 4px;
+  }
+
+  &__dot {
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all $transition-fast;
+    transform: scale(0);
+  }
+
+  // ---------------------------------------------------------------------------
+  // LABEL
+  // ---------------------------------------------------------------------------
+
+  &__label {
+    font-weight: $font-weight-bold;
+    color: $color-gray-500;
+    transition: color $transition-fast;
+  }
+
+  // ---------------------------------------------------------------------------
+  // SIZES
+  // ---------------------------------------------------------------------------
+
+  &--sm {
+    .duo-radio__control {
+      width: 20px;
+      height: 20px;
+    }
+
+    .duo-radio__dot {
+      width: 8px;
+      height: 8px;
+    }
+
+    .duo-radio__label {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &--md {
+    .duo-radio__control {
+      width: 24px;
+      height: 24px;
+    }
+
+    .duo-radio__dot {
+      width: 10px;
+      height: 10px;
+    }
+
+    .duo-radio__label {
+      font-size: $font-size-md;
+    }
+  }
+
+  &--lg {
+    .duo-radio__control {
+      width: 28px;
+      height: 28px;
+    }
+
+    .duo-radio__dot {
+      width: 12px;
+      height: 12px;
+    }
+
+    .duo-radio__label {
+      font-size: $font-size-lg;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // STATES
+  // ---------------------------------------------------------------------------
+
+  &--selected {
+    .duo-radio__control {
+      border-color: $color-primary;
+      background-color: $color-white;
+      border-bottom-color: $color-primary-dark;
+    }
+
+    .duo-radio__dot {
+      background-color: $color-primary;
+      transform: scale(1);
+    }
+
+    .duo-radio__label {
+      color: $color-primary-dark;
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    .duo-radio__control {
+      background-color: $color-gray-100;
+      border-color: $color-gray-200;
+    }
+
+    .duo-radio__label {
+      color: $color-gray-300;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // FOCUS STATE
+  // ---------------------------------------------------------------------------
+
+  &:focus-within:not(.duo-radio--disabled) {
+    .duo-radio__control {
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+    }
+  }
+}

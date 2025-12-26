@@ -1,0 +1,40 @@
+<div class="duo-input">
+  @if (label) {
+    <label class="duo-input__label">{{ label }}</label>
+  }
+
+  <div [class]="containerClasses.join(' ')">
+    @if (iconLeft) {
+      <span class="duo-input__icon duo-input__icon--left" [innerHTML]="iconLeft"></span>
+    }
+
+    <input
+      [type]="type"
+      [class]="inputClasses.join(' ')"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [readonly]="readonly"
+      [value]="value"
+      [attr.maxlength]="maxLength"
+      [attr.minlength]="minLength"
+      [attr.aria-label]="label"
+      [attr.aria-invalid]="!!errorMessage"
+      [attr.aria-describedby]="errorMessage ? 'error-' + label : hint ? 'hint-' + label : null"
+      (input)="onInput($event)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+    />
+
+    @if (iconRight) {
+      <span class="duo-input__icon duo-input__icon--right" [innerHTML]="iconRight"></span>
+    }
+  </div>
+
+  @if (hint && !errorMessage) {
+    <span class="duo-input__hint" [id]="'hint-' + label">{{ hint }}</span>
+  }
+
+  @if (errorMessage) {
+    <span class="duo-input__error" [id]="'error-' + label">{{ errorMessage }}</span>
+  }
+</div>

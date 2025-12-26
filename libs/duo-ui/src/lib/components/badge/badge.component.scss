@@ -1,0 +1,89 @@
+@use '../../styles/tokens' as *;
+
+// =============================================================================
+// DUOLINGO BADGE COMPONENT
+// =============================================================================
+
+.duo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  white-space: nowrap;
+
+  // ---------------------------------------------------------------------------
+  // SIZES
+  // ---------------------------------------------------------------------------
+
+  &--sm {
+    padding: 2px 8px;
+    font-size: 10px;
+    border-radius: 6px;
+  }
+
+  &--md {
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  &--lg {
+    padding: 6px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  // ---------------------------------------------------------------------------
+  // PILL VARIANT
+  // ---------------------------------------------------------------------------
+
+  &--pill {
+    border-radius: 999px;
+  }
+
+  // ---------------------------------------------------------------------------
+  // COLOR VARIANTS
+  // ---------------------------------------------------------------------------
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+    border-bottom-color: $color-primary-dark;
+  }
+
+  &--secondary {
+    background-color: $color-secondary;
+    color: $color-white;
+    border-bottom-color: $color-secondary-dark;
+  }
+
+  &--success {
+    background-color: $color-success;
+    color: $color-white;
+    border-bottom-color: $color-success-dark;
+  }
+
+  &--warning {
+    background-color: $color-warning;
+    color: #5C4600;
+    border-bottom-color: $color-warning-dark;
+  }
+
+  &--danger {
+    background-color: $color-danger;
+    color: $color-white;
+    border-bottom-color: $color-danger-dark;
+  }
+
+  &--gray {
+    background-color: $color-gray-200;
+    color: $color-gray-500;
+    border-bottom-color: $color-gray-300;
+  }
+}

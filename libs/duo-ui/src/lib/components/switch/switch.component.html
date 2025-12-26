@@ -1,0 +1,18 @@
+<label [class]="switchClasses.join(' ')">
+  <input
+    type="checkbox"
+    [checked]="checked"
+    [disabled]="disabled"
+    (change)="toggle()"
+    class="duo-switch__input"
+  />
+  @if (label && labelPosition === 'left') {
+    <span class="duo-switch__label">{{ label }}</span>
+  }
+  <span class="duo-switch__track">
+    <span class="duo-switch__thumb"></span>
+  </span>
+  @if (label && labelPosition === 'right') {
+    <span class="duo-switch__label">{{ label }}</span>
+  }
+</label>

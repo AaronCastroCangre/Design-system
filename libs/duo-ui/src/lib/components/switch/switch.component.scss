@@ -1,0 +1,232 @@
+@use '../../styles/tokens' as *;
+
+// =============================================================================
+// DUOLINGO SWITCH COMPONENT
+// =============================================================================
+
+.duo-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-family: $font-family;
+  user-select: none;
+
+  &--label-left {
+    flex-direction: row;
+  }
+
+  &--label-right {
+    flex-direction: row;
+  }
+
+  // ---------------------------------------------------------------------------
+  // HIDDEN INPUT
+  // ---------------------------------------------------------------------------
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  // ---------------------------------------------------------------------------
+  // TRACK
+  // ---------------------------------------------------------------------------
+
+  &__track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: $color-gray-300;
+    border-radius: 999px;
+    transition: all $transition-normal;
+    border-bottom: 3px solid $color-gray-400;
+  }
+
+  // ---------------------------------------------------------------------------
+  // THUMB
+  // ---------------------------------------------------------------------------
+
+  &__thumb {
+    position: absolute;
+    background-color: $color-white;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all $transition-normal;
+    left: 3px;
+  }
+
+  // ---------------------------------------------------------------------------
+  // LABEL
+  // ---------------------------------------------------------------------------
+
+  &__label {
+    font-weight: $font-weight-bold;
+    color: $color-gray-500;
+    transition: color $transition-fast;
+  }
+
+  // ---------------------------------------------------------------------------
+  // SIZES
+  // ---------------------------------------------------------------------------
+
+  &--sm {
+    .duo-switch__track {
+      width: 36px;
+      height: 20px;
+    }
+
+    .duo-switch__thumb {
+      width: 14px;
+      height: 14px;
+    }
+
+    &.duo-switch--checked .duo-switch__thumb {
+      transform: translateX(16px);
+    }
+
+    .duo-switch__label {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &--md {
+    .duo-switch__track {
+      width: 48px;
+      height: 26px;
+    }
+
+    .duo-switch__thumb {
+      width: 20px;
+      height: 20px;
+    }
+
+    &.duo-switch--checked .duo-switch__thumb {
+      transform: translateX(22px);
+    }
+
+    .duo-switch__label {
+      font-size: $font-size-md;
+    }
+  }
+
+  &--lg {
+    .duo-switch__track {
+      width: 60px;
+      height: 32px;
+    }
+
+    .duo-switch__thumb {
+      width: 26px;
+      height: 26px;
+    }
+
+    &.duo-switch--checked .duo-switch__thumb {
+      transform: translateX(28px);
+    }
+
+    .duo-switch__label {
+      font-size: $font-size-lg;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // COLORS (CHECKED STATE)
+  // ---------------------------------------------------------------------------
+
+  &--primary.duo-switch--checked {
+    .duo-switch__track {
+      background-color: $color-primary;
+      border-bottom-color: $color-primary-dark;
+    }
+  }
+
+  &--secondary.duo-switch--checked {
+    .duo-switch__track {
+      background-color: $color-secondary;
+      border-bottom-color: $color-secondary-dark;
+    }
+  }
+
+  &--success.duo-switch--checked {
+    .duo-switch__track {
+      background-color: $color-success;
+      border-bottom-color: $color-success-dark;
+    }
+  }
+
+  &--warning.duo-switch--checked {
+    .duo-switch__track {
+      background-color: $color-warning;
+      border-bottom-color: $color-warning-dark;
+    }
+  }
+
+  &--danger.duo-switch--checked {
+    .duo-switch__track {
+      background-color: $color-danger;
+      border-bottom-color: $color-danger-dark;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // STATES
+  // ---------------------------------------------------------------------------
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    .duo-switch__track {
+      background-color: $color-gray-200;
+      border-bottom-color: $color-gray-300;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // HOVER STATE
+  // ---------------------------------------------------------------------------
+
+  &:hover:not(.duo-switch--disabled) {
+    .duo-switch__thumb {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // FOCUS STATE
+  // ---------------------------------------------------------------------------
+
+  &:focus-within:not(.duo-switch--disabled) {
+    .duo-switch__track {
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // ACTIVE STATE
+  // ---------------------------------------------------------------------------
+
+  &:active:not(.duo-switch--disabled) {
+    .duo-switch__thumb {
+      transform: scale(0.95);
+    }
+
+    &.duo-switch--checked {
+      &.duo-switch--sm .duo-switch__thumb {
+        transform: translateX(16px) scale(0.95);
+      }
+
+      &.duo-switch--md .duo-switch__thumb {
+        transform: translateX(22px) scale(0.95);
+      }
+
+      &.duo-switch--lg .duo-switch__thumb {
+        transform: translateX(28px) scale(0.95);
+      }
+    }
+  }
+}

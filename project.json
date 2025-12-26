@@ -1,0 +1,55 @@
+{
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "name": "duo-design-system",
+  "projectType": "library",
+  "sourceRoot": "libs",
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "options": {
+        "outputPath": "dist/duo-design-system",
+        "index": "",
+        "browser": "",
+        "polyfills": ["zone.js"],
+        "tsConfig": "tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [],
+        "styles": []
+      },
+      "configurations": {
+        "production": {},
+        "development": {
+          "optimization": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "configDir": ".storybook",
+        "browserTarget": "duo-design-system:build",
+        "compodoc": false,
+        "port": 6006
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "options": {
+        "configDir": ".storybook",
+        "browserTarget": "duo-design-system:build",
+        "compodoc": false,
+        "outputDir": "dist/storybook"
+      }
+    },
+    "local-registry": {
+      "executor": "@nx/js:verdaccio",
+      "options": {
+        "port": 4873,
+        "config": ".verdaccio/config.yml",
+        "storage": "tmp/local-registry/storage"
+      }
+    }
+  }
+}

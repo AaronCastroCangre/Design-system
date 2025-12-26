@@ -1,0 +1,21 @@
+<div [class]="groupClasses.join(' ')" role="radiogroup">
+  @for (option of options; track option.value) {
+    <label
+      [class]="getOptionClasses(option).join(' ')"
+      (click)="selectOption(option)"
+    >
+      <input
+        type="radio"
+        [name]="name"
+        [value]="option.value"
+        [checked]="isSelected(option)"
+        [disabled]="isOptionDisabled(option)"
+        class="duo-radio__input"
+      />
+      <span class="duo-radio__control">
+        <span class="duo-radio__dot"></span>
+      </span>
+      <span class="duo-radio__label">{{ option.label }}</span>
+    </label>
+  }
+</div>

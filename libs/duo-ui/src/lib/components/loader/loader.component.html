@@ -1,0 +1,43 @@
+<div [class]="loaderClasses.join(' ')" role="status" [attr.aria-label]="label || 'Loading'">
+  @switch (variant) {
+    @case ('spinner') {
+      <div class="duo-loader__spinner">
+        <svg viewBox="0 0 50 50">
+          <circle
+            class="duo-loader__spinner-track"
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke-width="5"
+          />
+          <circle
+            class="duo-loader__spinner-head"
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke-width="5"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+    }
+    @case ('dots') {
+      <div class="duo-loader__dots">
+        <div class="duo-loader__dot"></div>
+        <div class="duo-loader__dot"></div>
+        <div class="duo-loader__dot"></div>
+      </div>
+    }
+    @case ('pulse') {
+      <div class="duo-loader__pulse">
+        <div class="duo-loader__pulse-ring"></div>
+        <div class="duo-loader__pulse-core"></div>
+      </div>
+    }
+  }
+  @if (label) {
+    <span class="duo-loader__label">{{ label }}</span>
+  }
+</div>
