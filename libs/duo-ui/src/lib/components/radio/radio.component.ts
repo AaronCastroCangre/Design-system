@@ -33,8 +33,8 @@ export class RadioComponent implements ControlValueAccessor {
 
   value: string | number | null = null;
 
-  private onChange: (value: string | number | null) => void = () => {};
-  private onTouched: () => void = () => {};
+  private onChange: (value: string | number | null) => void = () => { /* noop */ };
+  private onTouched: () => void = () => { /* noop */ };
 
   writeValue(value: string | number | null): void {
     this.value = value;

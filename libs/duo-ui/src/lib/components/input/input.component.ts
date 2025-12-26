@@ -55,8 +55,8 @@ export class InputComponent implements ControlValueAccessor {
   value = '';
   isFocused = false;
 
-  private onChange: (value: string) => void = () => {};
-  private onTouched: () => void = () => {};
+  private onChange: (value: string) => void = () => { /* noop */ };
+  private onTouched: () => void = () => { /* noop */ };
 
   get inputClasses(): string[] {
     return [
