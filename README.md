@@ -1,4 +1,39 @@
-# DuoDesignSystem
+# Duo Design System
+
+![Duo Design System Components](docs/screenshoots/image.png)
+
+A Duolingo-inspired Angular component library with playful 3D effects and vibrant colors. Built with Angular 20 and standalone components.
+
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| **Button** | 5 variants (primary, secondary, danger, success, warning), 3 sizes, icon support |
+| **Input** | Form inputs with validation states, icons, labels, and hints |
+| **Alert** | 4 variants (info, success, warning, danger) for notifications |
+| **Badge** | 6 color variants with pill style support |
+| **Loader** | 3 animation types (spinner, dots, pulse) |
+| **Modal** | Dialog with backdrop and animations |
+| **Radio** | Radio button groups with form integration |
+| **Switch** | Toggle switches with multiple colors |
+
+## Installation
+
+```bash
+npm install
+```
+
+## Storybook
+
+Run Storybook to explore all components:
+
+```bash
+npm run storybook
+```
+
+Open [http://localhost:6006](http://localhost:6006) to view the component library.
+
+---
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
 
